@@ -1,0 +1,22 @@
+{
+  "name": "xx",
+  "productName": "xx",
+  "version": "1.0.0",
+  "description": "find line",
+  "main": "./main.prod.js",
+  "homepage": "./app.html",
+  "author": {
+    "name": "coco",
+    "email": "xuke516469920@gmail.com"
+  },
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "opencv4nodejs": "^4.9.1"
+  },
+  "devDependencies": {
+  }
+}
