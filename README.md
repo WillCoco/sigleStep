@@ -9,9 +9,9 @@
 使用方式：
 
 1.拷贝截图到input
-(https://github.com/WillCoco/sigleStep/blob/master/input/60.jpeg)
+![1](https://github.com/WillCoco/sigleStep/blob/master/input/60.jpeg)
 
 2.npm start
 
 3.若解题成功，output输出解题结果
-(https://github.com/WillCoco/sigleStep/blob/master/output/60.jpeg)
+![2](https://github.com/WillCoco/sigleStep/blob/master/output/60.jpeg)
