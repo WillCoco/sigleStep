@@ -46,5 +46,5 @@ var findRoute = function (filename) {
 };
 // findRoute('1602236517783995431.jpg');
 // findRoute('60.jpeg');
-findRoute('10.jpeg');
+// findRoute('10.jpeg');
 exports.default = findRoute;

@@ -58,6 +58,6 @@ const findRoute = (filename) => {
 
 // findRoute('1602236517783995431.jpg');
 // findRoute('60.jpeg');
-findRoute('10.jpeg');
+// findRoute('10.jpeg');
 
 export default findRoute;
