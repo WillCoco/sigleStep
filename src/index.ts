@@ -12,8 +12,10 @@ const findRoute = (filename) => {
      * 裁剪原图
      */
     const originMat = cv.imread(path(inputDir, filename));
-    const [, width] = originMat.sizes;
-    const rect = new cv.Rect(0, 250, width, 820);
+    const [height, width] = originMat.sizes;
+    const gameArea = 1.1 * width;
+    const sY = (height - gameArea) / 2;
+    const rect = new cv.Rect(0, sY, width, gameArea);
 
     const croped = originMat.getRegion(rect);
     cv.imwrite(path(resourceDir, filename), croped);
@@ -24,7 +26,7 @@ const findRoute = (filename) => {
      * output：points，startPoint
      */
     const maps = getMap(filename);
-    console.log(maps, 999)
+    console.log(maps, 999);
 
     /**
      * 计算路线
@@ -56,6 +58,6 @@ const findRoute = (filename) => {
 
 // findRoute('1602236517783995431.jpg');
 // findRoute('60.jpeg');
-findRoute('61.jpeg');
+findRoute('10.jpeg');
 
 export default findRoute;

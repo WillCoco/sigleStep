@@ -10,8 +10,10 @@ var findRoute = function (filename) {
      * 裁剪原图
      */
     var originMat = cv.imread(path_1.default(inputDir, filename));
-    var _a = originMat.sizes, width = _a[1];
-    var rect = new cv.Rect(0, 250, width, 820);
+    var _a = originMat.sizes, height = _a[0], width = _a[1];
+    var gameArea = 1.1 * width;
+    var sY = (height - gameArea) / 2;
+    var rect = new cv.Rect(0, sY, width, gameArea);
     var croped = originMat.getRegion(rect);
     cv.imwrite(path_1.default(resourceDir, filename), croped);
     /**
@@ -44,5 +46,5 @@ var findRoute = function (filename) {
 };
 // findRoute('1602236517783995431.jpg');
 // findRoute('60.jpeg');
-findRoute('61.jpeg');
+findRoute('10.jpeg');
 exports.default = findRoute;

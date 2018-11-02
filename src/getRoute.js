@@ -101,6 +101,5 @@ function getNeighbors(remainPoints, currentPoint) {
             });
         }
     });
-    console.log(neighbors.length, 'neighbors');
     return neighbors;
 }

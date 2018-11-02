@@ -11,7 +11,9 @@ var _a = require('./config.json'), inputDir = _a.inputDir, resourceDir = _a.reso
 var option = new cv.SimpleBlobDetectorParams();
 option.blobColor = 1;
 option.filterByArea = true;
-option.filterByCircularity = false;
+option.filterByCircularity = true;
+option.minCircularity = 0.1;
+option.maxCircularity = 0.9;
 option.filterByColor = false;
 option.filterByConvexity = false;
 option.filterByInertia = false;
@@ -30,7 +32,12 @@ exports.default = default_1;
 // 灰度， 二值化
 function toGrey(img) {
     var imgGrey = img.cvtColor(cv.COLOR_BGR2GRAY);
-    return imgGrey.threshold(240, 255, cv.THRESH_TOZERO_INV);
+    // return imgGrey.threshold(240, 250, cv.THRESH_BINARY);
+    // return imgGrey.threshold(240, 250, cv.THRESH_BINARY_INV);
+    // return imgGrey.threshold(240, 250, cv.THRESH_TRUNC);
+    // return imgGrey.threshold(240, 250, cv.THRESH_TOZERO);
+    var im = imgGrey.threshold(240, 250, cv.THRESH_TOZERO_INV); // 1
+    return im.threshold(200, 250, cv.THRESH_TOZERO);
 }
 // 获取除起始点的斑点
 function getNormalPoints(option) {
@@ -43,11 +50,12 @@ function getNormalPoints(option) {
         kp.forEach(function (d) {
             points.drawCircle(d.point, 10, new cv.Vec3(0, 0, 255), 10);
         });
-        // console.log(kp, 'Tag 普通点');
+        console.log(kp, 'Tag 普通点');
         cv.imwrite(path_1.default(resourceDir, "normal_points_" + filename), points);
         return kp.map(function (d) { return d.point; });
     };
 }
+exports.getNormalPoints = getNormalPoints;
 // 获取起始点的斑点
 function getStartPoint(option) {
     return function (filename) {
