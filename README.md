@@ -38,6 +38,7 @@ const oneStepData2 = [
  * param: {object} data - 地图信息
  * param: {number} startIndex - 起点
  * param: {boolean} isFindAll - 是否找出全部路径
+ * return {array} - result 
  */
 function routing(data, startIndex, isFindAll) {
   const startStacks = [[...data[startIndex]]];
